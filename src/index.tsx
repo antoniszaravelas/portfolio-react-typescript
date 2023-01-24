@@ -1,10 +1,11 @@
 import ReactDOM from 'react-dom';
+import Parent from './props/Parent';
 
 const App = () => {
   return (
-    <div>hi</div>
+    <Parent />
   )
 }
 
 
-ReactDOM.render(<App/>, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
