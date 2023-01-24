@@ -1,5 +1,4 @@
 import { createRoot } from "react-dom/client";
-import Parent from "./props/Parent";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
@@ -56,6 +55,10 @@ const App = () => {
       localStorage.setItem("people", JSON.stringify(people));
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("people", JSON.stringify(people));
+  }, [people]);
 
   const deleteName = (index: number) => {
     const newPeople = people?.filter((_, i) => i !== index);
