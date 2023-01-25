@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button, DeleteButton, Input } from "./styledComponents";
 
 const GuestList: React.FC = () => {
-  const [people, setPeople] = useState<string[] | undefined>([]);
+  const [people, setPeople] = useState<string[]>([]);
   const [person, setPerson] = useState("");
 
   useEffect(() => {
