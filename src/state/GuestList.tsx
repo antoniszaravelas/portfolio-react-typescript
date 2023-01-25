@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { Button, DeleteButton, Input } from "./styledComponents";
 import UserSearch from "./UserSearch";
 
-const GuestList: React.FC = () => {
+interface GuestListProps {
+  personParameter: (person: string[]) => void;
+}
+
+const GuestList = (props: GuestListProps) => {
   const [people, setPeople] = useState<string[]>([]);
   const [person, setPerson] = useState("");
 
@@ -22,6 +26,7 @@ const GuestList: React.FC = () => {
 
   useEffect(() => {
     localStorage.setItem("people", JSON.stringify(people));
+    props.personParameter(people);
   }, [people]);
 
   const deleteName = (index: number) => {
@@ -59,10 +64,11 @@ const GuestList: React.FC = () => {
       </Button>
       <br />
       <br />
-
-      <UserSearch people={people} />
     </>
   );
 };
 
 export default GuestList;
+function personParameter(people: string[]) {
+  throw new Error("Function not implemented.");
+}

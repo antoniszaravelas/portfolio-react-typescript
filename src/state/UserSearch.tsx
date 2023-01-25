@@ -20,7 +20,8 @@ const UserSearch = ({ people }: { people: string[] }) => {
         }
         type="text"
       />
-      {filterPerson && filterPerson.map((person) => <div>{person}</div>)}
+      {filterPerson &&
+        filterPerson.map((person) => <div key={person}>{person}</div>)}
     </>
   );
 };
