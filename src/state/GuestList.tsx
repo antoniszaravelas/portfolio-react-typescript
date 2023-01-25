@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button, DeleteButton, Input } from "./styledComponents";
+import UserSearch from "./UserSearch";
 
 const GuestList: React.FC = () => {
   const [people, setPeople] = useState<string[]>([]);
@@ -56,6 +57,10 @@ const GuestList: React.FC = () => {
       <Button type="submit" onClick={addToTheList}>
         Click to add!
       </Button>
+      <br />
+      <br />
+
+      <UserSearch people={people} />
     </>
   );
 };
