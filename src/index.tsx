@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
+import UserSearchClass from "./classes/UserSearchClass";
+import EventComponent from "./events/EventComponent";
 import GuestList from "./state/GuestList";
 import UserSearch from "./state/UserSearch";
 
@@ -10,6 +12,7 @@ const App = () => {
     <>
       <GuestList personParameter={callback} />
       <UserSearch people={people} />
+      <EventComponent />
     </>
   );
 };
