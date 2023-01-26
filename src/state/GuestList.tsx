@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button, DeleteButton, Input } from "./styledComponents";
-import UserSearch from "./UserSearch";
 
 interface GuestListProps {
   personParameter: (person: string[]) => void;
 }
 
 const GuestList = (props: GuestListProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [people, setPeople] = useState<string[]>([]);
   const [person, setPerson] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("people"))
       setPeople(JSON.parse(localStorage.getItem("people")!));
+    inputRef?.current?.focus();
   }, []);
 
   const addToTheList = (event: React.MouseEvent<HTMLElement>) => {
@@ -58,6 +59,7 @@ const GuestList = (props: GuestListProps) => {
         type="text"
         id="person"
         value={person}
+        ref={inputRef}
       ></Input>
       <Button type="submit" onClick={addToTheList}>
         Click to add!
